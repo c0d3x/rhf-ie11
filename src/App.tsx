@@ -10,59 +10,60 @@ const schema = yup.object({
 	email: yup.string().email(),
 	password: yup.string().matches(new RegExp("^[a-zA-Z0-9]{3,30}$")),
 	confirmPassword: yup.ref("password"),
-  });
+});
   
 
 function App() {
 	const { register, handleSubmit, errors } = useForm({
 		resolver: yupResolver(schema),
-	  });
-  return (
-    <form onSubmit={handleSubmit((d) => alert(JSON.stringify(d)))}>
-      <label htmlFor='username'>Username :</label>
-      <input name='username' ref={register} id='username' placeholder='John' />
-      <ErrorMessage
-        errors={errors}
-        name='username'
-        render={({ message }) => <p>{message}</p>}
-      />
+	});
 
-      <label htmlFor='email'>Email address :</label>
-      <input
-        name='email'
-        ref={register}
-        id='email'
-        placeholder='johndoe@mail.com'
-      />
-      <ErrorMessage
-        errors={errors}
-        name='email'
-        render={({ message }) => <p>{message}</p>}
-      />
+	return (
+		<form onSubmit={handleSubmit((d) => alert(JSON.stringify(d)))}>
+			<label htmlFor='username'>Username :</label>
+			<input name='username' ref={register} id='username' placeholder='John' />
+			<ErrorMessage
+				errors={errors}
+				name='username'
+				render={({ message }) => <p>{message}</p>}
+			/>
 
-      <label htmlFor='password'>Password :</label>
-      <input name='password' ref={register} id='password' type='password' />
-      <ErrorMessage
-        errors={errors}
-        name='password'
-        render={({ message }) => <p>{message}</p>}
-      />
+			<label htmlFor='email'>Email address :</label>
+			<input
+				name='email'
+				ref={register}
+				id='email'
+				placeholder='johndoe@mail.com'
+			/>
+			<ErrorMessage
+				errors={errors}
+				name='email'
+				render={({ message }) => <p>{message}</p>}
+			/>
 
-      <label htmlFor='confirmPassword'>Confirm password :</label>
-      <input
-        name='confirmPassword'
-        ref={register}
-        id='confirmPassword'
-        type='password'
-      />
-      <ErrorMessage
-        errors={errors}
-        name='confirmPassword'
-        render={({ message }) => <p>{message}</p>}
-      />
-      <input type='submit' />
-    </form>
-  );
+			<label htmlFor='password'>Password :</label>
+			<input name='password' ref={register} id='password' type='password' />
+			<ErrorMessage
+				errors={errors}
+				name='password'
+				render={({ message }) => <p>{message}</p>}
+			/>
+
+			<label htmlFor='confirmPassword'>Confirm password :</label>
+			<input
+				name='confirmPassword'
+				ref={register}
+				id='confirmPassword'
+				type='password'
+			/>
+			<ErrorMessage
+				errors={errors}
+				name='confirmPassword'
+				render={({ message }) => <p>{message}</p>}
+			/>
+			<input type='submit' />
+		</form>
+	);
 }
 
 export default App;
