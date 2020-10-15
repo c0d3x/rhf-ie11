@@ -16,7 +16,12 @@
     "react-dom": "^16.14.0",
     "react-hook-form": "^6.9.2",
     "react-scripts": "3.4.3",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "yup": "^0.29.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@types/yup": "0.29.7"
   },
   "scripts": {
     "start": "react-scripts start",
